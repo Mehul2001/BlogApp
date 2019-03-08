@@ -90,6 +90,18 @@ app.put("/blogs/:id", (req, res) => {
     })
 })
 
+//DESTROY ROUTE
+app.delete("/blogs/:id", (req, res) => {
+    //destroy blog
+    Blog.findByIdAndDelete(req.params.id, (err) => {
+        if (err) {
+            res.redirect("/blogs");
+        } else {
+            res.redirect("/blogs");
+        }
+    })
+    //redirect somewhere
+})
 
 
 app.listen(port, console.log(`App is listening on ${port}`));
