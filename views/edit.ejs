@@ -1,0 +1,22 @@
+<% include partials/header.ejs%>
+    <div class="ui main text container segment">
+        <div class="ui huge header"> Edit
+            <%= foundblog.title%>
+        </div>
+        <form class="ui form" action="/blogs/<%=foundblog._id%>?_method=PUT" method="POST">
+            <div class="field">
+                <label>Title</label>
+                <input type="text" name="blog[title]" value="<%=foundblog.title%>">
+            </div>
+            <div class="field">
+                <label>Image</label>
+                <input type="text" name="blog[image]" value="<%=foundblog.image%>">
+            </div>
+            <div class="field">
+                <label>Blog Content</label>
+                <textarea name="blog[body]" id="" cols="30" rows="10"><%=foundblog.body%></textarea>
+            </div>
+            <input class="ui inverted big teal button" type="submit">
+        </form>
+    </div>
+    <% include partials/footer.ejs%>
