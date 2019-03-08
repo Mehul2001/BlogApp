@@ -53,6 +53,17 @@ app.post("/blogs", (req, res) => {
     })
 })
 
+//SHOW ROUTE
+app.get("/blogs/:id", (req, res) => {
+    Blog.findById(req.params.id, (err, foundblog) => {
+        if (err) {
+            res.redirect("/blogs");
+        } else {
+            res.render("show", { foundblog })
+        }
+    })
+})
+
 
 
 
